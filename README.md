@@ -4,6 +4,10 @@ The tools and assets used to build the Chapeau bootable iso image
 How to use
 ==========
 
+In order to build a Chapeau image one must first have your build system running the equivalent or later version of Fedora Workstation to the Chapeau version you intend to build.  
+Download the build-kit zip file or clone the build-kit git repository then setup the build host with the supplied setup script, then you're good to go.
+
+
 Where to put the build-kit directory
 ------------------------------------
 The scripts contained in this build-kit expects the build-kit directory to be in the root filesystem on your build host.
