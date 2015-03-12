@@ -1,0 +1,14 @@
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-uri='file:///usr/share/backgrounds/chapeau/chapeau_grassy_branded_wallpaper.jpg'
+picture-options='zoom'
+primary-color='#667852'
+secondary-color='#deb984'
+
+[org/gnome/desktop/screensaver]
+color-shading-type='vertical'
+picture-uri='file:///usr/share/backgrounds/chapeau/blue_fade_wallpaper.jpg'
+picture-options='zoom'
+primary-color='#6b7956'
+secondary-color='#d0a153'
+

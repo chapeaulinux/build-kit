@@ -1,0 +1,5 @@
+# Having file & image checksums run every time you burn
+# gets tired really quickly.
+
+[org/gnome/brasero/config]
+plugins=['file-downloader', 'normalize', 'burn-uri']

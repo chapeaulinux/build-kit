@@ -1,0 +1,4 @@
+[org/gnome/shell]
+always-show-log-out=true
+favorite-apps=['firefox.desktop', 'evolution.desktop', 'gnome-documents.desktop', 'gnome-music.desktop', 'shotwell.desktop', 'libreoffice-writer.desktop', 'nautilus.desktop', 'gnome-software.desktop']
+enabled-extensions=['caffeine@patapon.info', 'mediaplayer@patapon.info']

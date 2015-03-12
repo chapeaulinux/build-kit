@@ -1,0 +1,3 @@
+[org/yorba/shotwell/preferences/editing]
+external-photo-editor='gimp-2.8 %U'
+#external-raw-editor='rawtherapee %f'

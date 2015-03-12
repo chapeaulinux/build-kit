@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Welcome to Chapeau!
+Categories=System;
+GenericName=Chapeau Welcome
+Type=Application
+Comment=Live Image Welcome Application
+Exec=gjs-console /usr/share/anaconda/gnome/chapeau-welcome
+Icon=/usr/share/icons/Fedora/scalable/apps/anaconda.svg
+NoDisplay=true
+
