@@ -1,12 +1,12 @@
 #!/bin/sh
+creator_fslabel=Chapeau
+creator_releasever=21
 buildroot=/build-kit
-creator_cache=${buildroot}/buildcache
-creator_config=${buildroot}/kickstart/chapeau-21.ks
+creator_cache=${buildroot}/buildcache${creator_releasever}
+creator_config=${buildroot}/kickstart/chapeau-${creator_releasever}.ks
 log=${buildroot}/$(basename $0|cut -d. -f1)_$(date +%Y%m%d%H%M).log
 extras=${buildroot}/extras
 
-creator_fslabel=Chapeau
-creator_releasever=21
 sestatus=$(sestatus)
 seenabled=$(echo "$sestatus" | grep -i "^SELinux status:.*enabled")
 seenforcing=$(echo "$sestatus" | grep -i "^Current mode:.*enforcing")
@@ -89,8 +89,8 @@ done
 packagelist="http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
 http://extensions.gnome.org/static/extension-data/mediaplayer%40patapon.info.v32.shell-extension.zip
 http://extensions.gnome.org/static/extension-data/caffeine%40patapon.info.v20.shell-extension.zip
-http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm
-http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm"
+http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${creator_releasever}.noarch.rpm
+http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${creator_releasever}.noarch.rpm"
 #packagelist="http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
 #http://extensions.gnome.org/static/extension-data/mediaplayer%40patapon.info.v32.shell-extension.zip
 #http://extensions.gnome.org/static/extension-data/caffeine%40patapon.info.v20.shell-extension.zip
