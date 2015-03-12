@@ -17,8 +17,8 @@ If you want your build-kit directory in /home/fred then create a symbolic link w
 
 Personally I use virtual machines for my build hosts and my build-kit directories are located on a file server.
 Therefore within my build VMs I mount my remote build-kit directory which is shared via NFS to /build-kit.
-e.g.
-`$ sudo mkdir /build-kit`
+e.g.  
+`$ sudo mkdir /build-kit`  
 `$ sudo mount -t nfs myserver:/home/data/chapeaustuff/build-kit /build-kit`
 
 
@@ -27,7 +27,7 @@ Setting up your host to build Chapeau
 It is recommended to build Chapeau on a machine running the same version of Fedora to the version of Chapeau you're building or at least be running the latest Fedora.
 To setup your Fedora machine as a build host change directory to /build-kit and run the setup-build-host.sh script.
 
-e.g.
+e.g.  
 `$ /build-kit/setup-build-host.sh`
 
 This will install the tools you need to make a livecd image and to build RPM packages.
@@ -41,7 +41,7 @@ Once your build host is setup and before running the livecd-creator script set s
 
 Then run the livecd-creator script;
 
-`$ cd /build-kit`
+`$ cd /build-kit`  
 `$ ./livecd-creator.sh`
 
 The tool will create a "buildcache" directory in /build-kit, this is where all the packages will be downloaded to.  
