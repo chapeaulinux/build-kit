@@ -26,8 +26,8 @@ e.g.
 `$ sudo mount -t nfs myserver:/home/data/chapeaustuff/build-kit /build-kit`
 
 
-Setting up your host to build Chapeau
--------------------------------------
+Setting up your Fedora host to build Chapeau
+--------------------------------------------
 It is recommended to build Chapeau on a machine running the same version of Fedora to the version of Chapeau you're building or at least be running the latest Fedora.
 To setup your Fedora machine as a build host change directory to /build-kit and run the setup-build-host.sh script.
 
