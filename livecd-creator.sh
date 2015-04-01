@@ -1,6 +1,6 @@
 #!/bin/sh
 creator_fslabel=Chapeau
-creator_releasever=21
+creator_releasever=22
 buildroot=/build-kit
 creator_cache=${buildroot}/buildcache${creator_releasever}
 creator_config=${buildroot}/kickstart/chapeau-${creator_releasever}.ks

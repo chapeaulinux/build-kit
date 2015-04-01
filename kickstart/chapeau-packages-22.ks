@@ -136,7 +136,9 @@ gnome-shell-extension-common
 gnome-shell-extension-weather
 #gnome-shell-extension-cpu-temperature
 gnome-shell-extension-drive-menu
-gnome-power-statistics
+gnome-power-manager
+gnome-books
+gnome-calendar
 
 #libcdio
 #libcdio-paranoia

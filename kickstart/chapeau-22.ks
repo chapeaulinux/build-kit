@@ -11,22 +11,22 @@
 %post --nochroot
 
 # chapeau-welcome
-/usr/bin/cp /build-kit/resources/chapeau-welcome.desktop $INSTALL_ROOT/usr/share/applications/
-/usr/bin/cp -p /build-kit/resources/chapeau-welcome $INSTALL_ROOT/usr/share/anaconda/gnome/
+/usr/bin/cp /build-kit/assets/chapeau-welcome.desktop $INSTALL_ROOT/usr/share/applications/
+/usr/bin/cp -p /build-kit/assets/chapeau-welcome $INSTALL_ROOT/usr/share/anaconda/gnome/
 
 # Extras
 /usr/bin/mkdir -p $INSTALL_ROOT/opt/extras
 /usr/bin/cp /build-kit/extras/* $INSTALL_ROOT/opt/extras/
-/usr/bin/cp -R /build-kit/resources/mozilla $INSTALL_ROOT/opt/extras/
+/usr/bin/cp -R /build-kit/assets/mozilla $INSTALL_ROOT/opt/extras/
 
 # Defaults
-/usr/bin/cp /build-kit/resources/dconf/profile/user $INSTALL_ROOT/etc/dconf/profile/
+/usr/bin/cp /build-kit/assets/dconf/profile/user $INSTALL_ROOT/etc/dconf/profile/
 /usr/bin/mkdir -p $INSTALL_ROOT/etc/dconf/db/local.d/locks
-/usr/bin/cp /build-kit/resources/dconf/db/local.d/* $INSTALL_ROOT/etc/dconf/db/local.d/
-/usr/bin/cp /build-kit/resources/dconf/desktop-directories/* $INSTALL_ROOT/usr/share/desktop-directories/
+/usr/bin/cp /build-kit/assets/dconf/db/local.d/* $INSTALL_ROOT/etc/dconf/db/local.d/
+/usr/bin/cp /build-kit/assets/dconf/desktop-directories/* $INSTALL_ROOT/usr/share/desktop-directories/
 
 # GIMP sessionrc file
-/usr/bin/cp /build-kit/resources/gimp_sessionrc $INSTALL_ROOT/opt/extras/
+/usr/bin/cp /build-kit/assets/gimp_sessionrc $INSTALL_ROOT/opt/extras/
 
 %end
 
