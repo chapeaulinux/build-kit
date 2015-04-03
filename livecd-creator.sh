@@ -87,8 +87,8 @@ done
 
 #Download external packages
 packagelist="http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
-http://extensions.gnome.org/static/extension-data/mediaplayer%40patapon.info.v32.shell-extension.zip
-http://extensions.gnome.org/static/extension-data/caffeine%40patapon.info.v20.shell-extension.zip
+http://extensions.gnome.org/static/extension-data/mediaplayer%40patapon.info.v33.shell-extension.zip
+http://extensions.gnome.org/static/extension-data/caffeine%40patapon.info.v21.shell-extension.zip
 http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${creator_releasever}.noarch.rpm
 http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${creator_releasever}.noarch.rpm"
 #packagelist="http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
