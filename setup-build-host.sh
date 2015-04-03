@@ -6,7 +6,7 @@
 #	building a Fedora live image.
 #
 
-packages="livecd-tools fedora-kickstarts spin-kickstarts nfs-utils yum-utils @development-tools fedora-packager createrepo kde-filesystem libicns-utils"
+packages="livecd-tools fedora-kickstarts spin-kickstarts nfs-utils yum-utils @development-tools fedora-packager createrepo kde-filesystem libicns-utils automake gnome-common gettext glib2-devel intltool"
 br=/build-kit
 rpmbdir=~/rpmbuild
 rpmuser=$(whoami)

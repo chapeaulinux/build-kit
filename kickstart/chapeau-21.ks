@@ -50,14 +50,14 @@
 # Gnome Shell extensions not available from repos
 /usr/bin/mkdir -p "/etc/skel/.local/share/gnome-shell/extensions"
 ## 'Caffeine'
-##  info - https://extensions.gnome.org/extension-info/?pk=517&shell_version=3.10
-##  download - https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=3311
+##  info - https://extensions.gnome.org/extension-info/?pk=517&shell_version=3.14
+##  download - https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=4791
 /usr/bin/mkdir -p "/usr/share/gnome-shell/extensions/caffeine@patapon.info"
 /usr/bin/unzip /opt/extras/caffeine-extension.zip -d "/usr/share/gnome-shell/extensions/caffeine@patapon.info"
 /usr/bin/cp -pR /usr/share/gnome-shell/extensions/caffeine@patapon.info /etc/skel/.local/share/gnome-shell/extensions/
 ## 'Media Player Indicator'
-##  info - https://extensions.gnome.org/extension-info/?pk=55&shell_version=3.10
-##  download - https://extensions.gnome.org/download-extension/mediaplayer@patapon.info.shell-extension.zip?version_tag=3318
+##  info - https://extensions.gnome.org/extension-info/?pk=55&shell_version=3.14
+##  download - https://extensions.gnome.org/download-extension/mediaplayer@patapon.info.shell-extension.zip?version_tag=4791
 /usr/bin/mkdir -p "/usr/share/gnome-shell/extensions/mediaplayer@patapon.info"
 /usr/bin/unzip /opt/extras/media-player-indicator-extension.zip -d "/usr/share/gnome-shell/extensions/mediaplayer@patapon.info"
 /usr/bin/cp -pR /usr/share/gnome-shell/extensions/mediaplayer@patapon.info /etc/skel/.local/share/gnome-shell/extensions/
