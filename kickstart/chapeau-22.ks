@@ -78,7 +78,7 @@
 # Update dconf databases to apply our user's Gnome defaults (set in the --nochroot)
 /usr/bin/dconf update
 
-# Force plymouth default theme as charge keeps overiding it during build
+# Force plymouth default theme
 /usr/bin/sed -i -e 's/Theme=.+/Theme=chapeau/g' /usr/share/plymouth/plymouthd.defaults
 /usr/bin/sed -i -e 's/^Theme=.+/Theme=chapeau/g' /etc/plymouth/plymouthd.conf
 /usr/sbin/plymouth-set-default-theme chapeau
@@ -294,7 +294,7 @@ systemctl stop mdmonitor.service 2> /dev/null || :
 systemctl stop mdmonitor-takeover.service 2> /dev/null || :
 
 # don't enable the gnome-settings-daemon packagekit plugin
-gsettings set org.gnome.software download-updates 'false' || :
+gsettings set org.gnome.software download-updates false || :
 
 # don't start cron/at as they tend to spawn things which are
 # disk intensive that are painful on a live image
@@ -422,9 +422,10 @@ fi
 # Create a separate Pharlap icon named 'Driver Helper' to make it more obvious what it's for.
 /usr/bin/cp -p /usr/share/applications/pharlap.desktop /usr/share/applications/driver_helper.desktop
 /usr/bin/sed -i 's/^Name=.*/Name=Driver Helper/' /usr/share/applications/driver_helper.desktop
-/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/hicolor\/scalable\/apps\/hwhelper.svg/' /usr/share/applications/driver_helper.desktop
-/usr/bin/cp /opt/extras/hwhelper.svg /usr/share/icons/hicolor/scalable/apps/
-/usr/bin/chmod 644 /usr/share/icons/hicolor/scalable/apps/hwhelper.svg
+/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/Moka\/96x96\/apps\/cs-drivers.png/' /usr/share/applications/driver_helper.desktop
+#/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/hicolor\/scalable\/apps\/hwhelper.svg/' /usr/share/applications/driver_helper.desktop
+#/usr/bin/cp /opt/extras/hwhelper.svg /usr/share/icons/hicolor/scalable/apps/
+#/usr/bin/chmod 644 /usr/share/icons/hicolor/scalable/apps/hwhelper.svg
 
 # Tidy up liveusb-creator icon which is Fedora branded
 # The original icon will probably return at some point when updated

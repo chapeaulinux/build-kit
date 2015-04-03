@@ -33,6 +33,8 @@ kernel
 kernel-modules-extra
 kernel-devel
 kernel-headers
+yum
+-dnf-yum
 
 # This was added a while ago, I think it falls into the category of
 # "Diagnosis/recovery tool useful from a Live OS image".  Leaving this untouched
@@ -129,8 +131,12 @@ stress
 beesu
 terminus-fonts-console
 gnome-system-log
-##Chapeau logo font, Comfortaa
+
+##Chapeau appearance
 aajohan-comfortaa-fonts
+chapeau-gnome-theme
+oxygen-cursor-themes
+
 ##Gnome-shell extensions
 gnome-shell-extension-common
 gnome-shell-extension-weather
