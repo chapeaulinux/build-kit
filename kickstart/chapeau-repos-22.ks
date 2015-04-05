@@ -33,9 +33,9 @@ repo --name=Dropbox --baseurl=http://linux.dropbox.com/fedora/21/
 
 ## Chapeau packages
 # Local build repo for chapeau package testing
-#repo --name="Chapeau" --baseurl=file:///build-kit/repo/22/x86_64/
-#repo --name="Chapeau 32bit packages" --baseurl=file:///build-kit/repo/22/i386/
+repo --name="Chapeau" --baseurl=file:///chapeau/repo/22/x86_64/
+repo --name="Chapeau 32bit packages" --baseurl=file:///chapeau/repo/22/i386/
 # Live repo
-repo --name="Chapeau" --baseurl=http://chapeaulinux.org/repo/22/x86_64/
-repo --name="Chapeau 32bit packages" --baseurl=http://chapeaulinux.org/repo/22/i386/
+#repo --name="Chapeau" --baseurl=http://chapeaulinux.org/repo/22/x86_64/
+#repo --name="Chapeau 32bit packages" --baseurl=http://chapeaulinux.org/repo/22/i386/
 
