@@ -85,8 +85,8 @@
 /usr/bin/dracut --force /boot/initrd-$(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1).img $(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1)
 
 # **Temporary during testing** - Install RPMFusion development repo rpms
-/usr/bin/rpm -iv /opt/extras/rpmfusion-free-release-rawhide.noarch.rpm
-/usr/bin/rpm -iv /opt/extras/rpmfusion-nonfree-release-rawhide.noarch.rpm
+#/usr/bin/rpm -iv /opt/extras/rpmfusion-free-release-rawhide.noarch.rpm
+#/usr/bin/rpm -iv /opt/extras/rpmfusion-nonfree-release-rawhide.noarch.rpm
 
 %end
 
