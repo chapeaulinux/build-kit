@@ -229,6 +229,11 @@ usermod -aG wheel liveuser > /dev/null
 # Turn off the bug reporting tool in live sessions
 systemctl stop abrtd.service 2> /dev/null || :
 
+# Stop package update checking & downloads in live sessions
+systemctl stop packagekit.service 2>/dev/null
+/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.software download-updates false' - liveuser
+/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.settings-daemon.plugins.updates active false' - liveuser
+
 # Set the right permissions and selinux contexts on liveuser's home directory
 /usr/bin/chown -R 1000 /home/liveuser
 /usr/sbin/restorecon -R /home/liveuser
@@ -237,9 +242,6 @@ systemctl stop abrtd.service 2> /dev/null || :
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.desktop.screensaver lock-enabled false' - liveuser
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.session idle-delay 0' - liveuser
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.desktop.lockdown disable-lock-screen true' - liveuser
-
-# Disable updates plugin
-/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.settings-daemon.plugins.updates active false' - liveuser
 
 # Setup liveuser's desktop favorites
 echo "/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.shell favorite-apps \"['firefox.desktop', 'evolution.desktop', 'gnome-documents.desktop', 'gnome-music.desktop', 'shotwell.desktop', 'libreoffice-writer.desktop', 'nautilus.desktop', 'liveinst.desktop']\"" >/aa
