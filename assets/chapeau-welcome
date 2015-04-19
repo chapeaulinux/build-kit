@@ -122,7 +122,7 @@ const WelcomeWindow = new Lang.Class({
               buttonBox.destroy();
               this._label.destroy();
 
-              let image = new Gtk.Image({ file: '/usr/share/anaconda/gnome/install-button.png',
+              let image = new Gtk.Image({ file: '/usr/share/pixmaps/chapeau-install-button.png',
                                           halign: Gtk.Align.CENTER });
               mainGrid.add(image);
 

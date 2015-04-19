@@ -13,6 +13,7 @@
 # chapeau-welcome
 /usr/bin/cp /build-kit/assets/chapeau-welcome.desktop $INSTALL_ROOT/usr/share/applications/
 /usr/bin/cp -p /build-kit/assets/chapeau-welcome $INSTALL_ROOT/usr/share/anaconda/gnome/
+/usr/bin/cp -p /build-kit/assets/chapeau-install-button.png $INSTALL_ROOT/usr/share/pixmaps/
 
 # Extras
 /usr/bin/mkdir -p $INSTALL_ROOT/opt/extras
@@ -73,7 +74,7 @@
 /usr/bin/cp /opt/extras/mozilla/firefox/chapeau.default/prefs.js /etc/skel/.mozilla/firefox/chapeau.default
 
 # Restore default SELinux security contexts on the new/changed files
-/usr/sbin/restorecon -R /etc/skel/* /etc/dconf/db/local.d /etc/dconf/profile/user /usr/share/icons/Fedora/48x48/apps/anaconda.png /usr/share/icons/Fedora/scalable/apps/anaconda.svg /usr/share/desktop-directories/*
+/usr/sbin/restorecon -R /etc/skel/* /etc/dconf/db/local.d /etc/dconf/profile/user /usr/share/icons/Fedora/48x48/apps/anaconda.png /usr/share/icons/Fedora/scalable/apps/anaconda.svg /usr/share/desktop-directories/* /usr/share/pixmaps/chapeau-install-button.png
 
 # Update dconf databases to apply our user's Gnome defaults (set in the --nochroot)
 /usr/bin/dconf update
