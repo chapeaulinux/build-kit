@@ -262,8 +262,10 @@ echo "/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.shell favorite-apps 
 # make the installer show up
 /usr/bin/sed -i 's/NoDisplay=true/NoDisplay=false/' /usr/share/applications/liveinst.desktop
 
-# hide gnome-software in a live session
+# hide gnome-software & yumex in a live session
 echo "NoDisplay=true" >> /usr/share/applications/gnome-software.desktop
+echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Software.desktop
+echo "NoDisplay=true" >> /usr/share/applications/yumex.desktop
 
 # set up gdm auto-login
 /usr/bin/sed -i 's/\[daemon\]/\[daemon\]\nAutomaticLoginEnable=True\nAutomaticLogin=liveuser\n/' /etc/gdm/custom.conf
@@ -441,10 +443,8 @@ fi
 /usr/bin/cp -p /usr/share/applications/liveusb-creator.desktop /usr/share/applications/liveusb_creator.desktop
 echo "NoDisplay=true" >> /usr/share/applications/liveusb-creator.desktop
 
-# ... and the XTerm icon's just nasty looking.
+# ... Hide/remove some unwanted icons
 echo "NoDisplay=true" >> /usr/share/applications/xterm.desktop
-
-# ... and the OpenJDK Policy tool icon
 rm -f /usr/share/applications/*openjdk-*-policytool.desktop
 
 # The liveinst launcher needs an icon

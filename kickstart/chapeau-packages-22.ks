@@ -154,28 +154,29 @@ gnome-calendar
 qtwebkit.i686
 libXScrnSaver.i686
 
-## Broadcom chipset tools
+## Hardware
 b43-openfwwf
 b43-tools
 b43-fwcutter
+cups-bjnp
 
 ## RPMFusion
-# **Temporary during testing** - RPMFusion development repo rpms are installed manually from the rpms in /opt/extras for now
+# **Testing** - RPMFusion development repo rpms included in the chapeau-repos package
 ###rpmfusion-free-release-rawhide
 ###rpmfusion-nonfree-release-rawhide
 ###rpmfusion-free-release
 ###rpmfusion-nonfree-release
 unrar
-#gstreamer1-libav
-#gstreamer1-plugins-bad-free-extras
-#gstreamer1-plugins-bad-freeworld
-#gstreamer1-plugins-base-tools
-#gstreamer1-plugins-good-extras
-#gstreamer1-plugins-ugly
-#gstreamer1-plugins-bad-free
+gstreamer1-libav
+gstreamer1-plugins-bad-free-extras
+gstreamer1-plugins-bad-freeworld
+gstreamer1-plugins-base-tools
+gstreamer1-plugins-good-extras
+gstreamer1-plugins-ugly
+gstreamer1-plugins-bad-free
 gstreamer1-plugins-good
 gstreamer1-plugins-base
-#vlc
+vlc
 steam
 
 ## Korora
