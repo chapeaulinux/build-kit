@@ -15,7 +15,7 @@ repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?rep
 repo --name="RPMFusion Free Devel" --baseurl=http://download1.rpmfusion.org/free/fedora/development/$releasever/$basearch/os/
 #repo --name="RPMFusion Free Devel i386" --baseurl=http://download1.rpmfusion.org/free/fedora/development/$releasever/i386/os/
 repo --name="RPMFusion Non-Free Devel" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/development/$releasever/$basearch/os/
-#repo --name="RPMFusion Non-Free Devel i386" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/development/$releasever/i386/os/
+repo --name="RPMFusion Non-Free Devel i386" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/development/$releasever/i386/os/ --includepkgs=steam,lpf-spotify-client
 ## Rawhide
 #repo --name="RPMFusion Free Rawhide" --baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/
 #repo --name="RPMFusion Free Rawhide i386" --baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/i386/os/
@@ -39,9 +39,9 @@ repo --name=Dropbox --baseurl=http://linux.dropbox.com/fedora/21/
 
 ## Chapeau packages
 # Local build repo for chapeau package testing
-repo --name="Chapeau" --baseurl=file:///chapeau/repo/22/x86_64/
-repo --name="Chapeau 32bit packages" --baseurl=file:///chapeau/repo/22/i386/
+#repo --name="Chapeau" --baseurl=file:///chapeau/repo/22/x86_64/
+#repo --name="Chapeau 32bit packages" --baseurl=file:///chapeau/repo/22/i386/
 # Live repo
-#repo --name="Chapeau" --baseurl=http://chapeaulinux.org/repo/22/x86_64/
-#repo --name="Chapeau 32bit packages" --baseurl=http://chapeaulinux.org/repo/22/i386/
+repo --name="Chapeau" --baseurl=http://chapeaulinux.org/repo/22/x86_64/
+repo --name="Chapeau 32bit packages" --baseurl=http://chapeaulinux.org/repo/22/i386/
 

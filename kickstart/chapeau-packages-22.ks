@@ -122,7 +122,8 @@ libmpg123
 #transcode
 xvidcore
 libbluray
-pitivi
+#pitivi
+openshot
 -totem*
 chntpw
 openssh-server
@@ -136,6 +137,8 @@ gnome-system-log
 aajohan-comfortaa-fonts
 chapeau-gnome-theme
 oxygen-cursor-themes
+f21-backgrounds-gnome
+f21-backgrounds-extras-gnome
 
 ##Gnome-shell extensions
 gnome-shell-extension-common
