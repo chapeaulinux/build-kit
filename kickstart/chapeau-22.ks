@@ -452,7 +452,7 @@ echo "Icon=/usr/share/icons/Fedora/scalable/apps/anaconda.svg" >> /usr/share/app
 
 # Make Dropbox repo not mandatory as the Dropbox rpm installs
 # the repo file but their Fedora 22 repo is not yet available
-echo "skip_if_unavailable=1" >> /etc/yum.repos.d/dropbox.repo
+# echo "skip_if_unavailable=1" >> /etc/yum.repos.d/dropbox.repo
 
 # Some PNGs included with PlayOnLinux cause libpng to throw a warning when launching PlayOnLinux
 /usr/bin/find /usr/share/playonlinux -type f -name "*.png" -exec /usr/bin/convert '{}' -strip '{}' \;
