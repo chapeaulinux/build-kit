@@ -108,7 +108,7 @@ nautilus-extensions
 nautilus-open-terminal
 nautilus-sendto
 #nautilus-sound-converter
-yumex
+yumex-dnf
 unoconv
 alsa-plugins-pulseaudio
 alsa-utils
