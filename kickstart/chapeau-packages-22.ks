@@ -67,6 +67,7 @@ firefox
 gnome-tweak-tool
 #fonts-tweak-tool
 darktable
+gnome-photos
 gnome-boxes
 testdisk
 gimp
@@ -117,6 +118,7 @@ flac
 lame
 libdvdnav
 libdvdread
+lsdvd
 libmatroska
 libmpg123
 #transcode
@@ -179,6 +181,8 @@ gstreamer1-plugins-ugly
 gstreamer1-plugins-bad-free
 gstreamer1-plugins-good
 gstreamer1-plugins-base
+gstreamer-ffmpeg
+xvidcore
 vlc
 steam
 

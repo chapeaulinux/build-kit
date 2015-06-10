@@ -73,6 +73,11 @@
 /usr/bin/cp /opt/extras/mozilla/firefox/profiles.ini /etc/skel/.mozilla/firefox/
 /usr/bin/cp /opt/extras/mozilla/firefox/chapeau.default/prefs.js /etc/skel/.mozilla/firefox/chapeau.default
 
+# Insert up to date pharlap-modalias.map so Pharlap works for fc22
+#   Should report this to the Korora project. Pharlap should regenerate this on first run or if it doesn't exist but it doesn't,
+#   also a pharlap-modalias.map file is shipped with the package that contains package names particular to a specific fc release.
+/usr/bin/cp -f /opt/extras/pharlap-modalias.map /usr/share/pharlap
+
 # Restore default SELinux security contexts on the new/changed files
 /usr/sbin/restorecon -R /etc/skel/* /etc/dconf/db/local.d /etc/dconf/profile/user /usr/share/icons/Fedora/48x48/apps/anaconda.png /usr/share/icons/Fedora/scalable/apps/anaconda.svg /usr/share/desktop-directories/* /usr/share/pixmaps/chapeau-install-button.png
 
@@ -265,7 +270,7 @@ echo "/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.shell favorite-apps 
 # hide gnome-software & yumex in a live session
 echo "NoDisplay=true" >> /usr/share/applications/gnome-software.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Software.desktop
-echo "NoDisplay=true" >> /usr/share/applications/yumex.desktop
+echo "NoDisplay=true" >> /usr/share/applications/yumex-dnf.desktop
 
 # set up gdm auto-login
 /usr/bin/sed -i 's/\[daemon\]/\[daemon\]\nAutomaticLoginEnable=True\nAutomaticLogin=liveuser\n/' /etc/gdm/custom.conf
@@ -467,6 +472,10 @@ cd /opt/extras
 /usr/bin/mkdir -p /etc/skel/.local/share/Steam/ubuntu12_32/plugins/
 /usr/bin/chmod -R 777 /etc/skel/.local/share/Steam
 ln -s /usr/lib/flash-plugin/libflashplayer.so /etc/skel/.local/share/Steam/ubuntu12_32/plugins/
+
+## Chapeau 22 ##
+# Disable Wayland on GDM for now, there seems to be a lot of reported issues with this for now
+/usr/bin/sed -i 's/^#WaylandEnable/WayandEnable/g' /etc/gdm/custom.conf
 
 # Remove temporary extras directory
 /usr/bin/rm -rf /opt/extras
