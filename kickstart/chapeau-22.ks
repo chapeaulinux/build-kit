@@ -11,22 +11,23 @@
 %post --nochroot
 
 # chapeau-welcome
-/usr/bin/cp /build-kit/resources/chapeau-welcome.desktop $INSTALL_ROOT/usr/share/applications/
-/usr/bin/cp -p /build-kit/resources/chapeau-welcome $INSTALL_ROOT/usr/share/anaconda/gnome/
+/usr/bin/cp /build-kit/assets/chapeau-welcome.desktop $INSTALL_ROOT/usr/share/applications/
+/usr/bin/cp -p /build-kit/assets/chapeau-welcome $INSTALL_ROOT/usr/share/anaconda/gnome/
+/usr/bin/cp -p /build-kit/assets/chapeau-install-button.png $INSTALL_ROOT/usr/share/pixmaps/
 
 # Extras
 /usr/bin/mkdir -p $INSTALL_ROOT/opt/extras
 /usr/bin/cp /build-kit/extras/* $INSTALL_ROOT/opt/extras/
-/usr/bin/cp -R /build-kit/resources/mozilla $INSTALL_ROOT/opt/extras/
+/usr/bin/cp -R /build-kit/assets/mozilla $INSTALL_ROOT/opt/extras/
 
 # Defaults
-/usr/bin/cp /build-kit/resources/dconf/profile/user $INSTALL_ROOT/etc/dconf/profile/
+/usr/bin/cp /build-kit/assets/dconf/profile/user $INSTALL_ROOT/etc/dconf/profile/
 /usr/bin/mkdir -p $INSTALL_ROOT/etc/dconf/db/local.d/locks
-/usr/bin/cp /build-kit/resources/dconf/db/local.d/* $INSTALL_ROOT/etc/dconf/db/local.d/
-/usr/bin/cp /build-kit/resources/dconf/desktop-directories/* $INSTALL_ROOT/usr/share/desktop-directories/
+/usr/bin/cp /build-kit/assets/dconf/db/local.d/* $INSTALL_ROOT/etc/dconf/db/local.d/
+/usr/bin/cp /build-kit/assets/dconf/desktop-directories/* $INSTALL_ROOT/usr/share/desktop-directories/
 
 # GIMP sessionrc file
-/usr/bin/cp /build-kit/resources/gimp_sessionrc $INSTALL_ROOT/opt/extras/
+/usr/bin/cp /build-kit/assets/gimp_sessionrc $INSTALL_ROOT/opt/extras/
 
 %end
 
@@ -50,14 +51,14 @@
 # Gnome Shell extensions not available from repos
 /usr/bin/mkdir -p "/etc/skel/.local/share/gnome-shell/extensions"
 ## 'Caffeine'
-##  info - https://extensions.gnome.org/extension-info/?pk=517&shell_version=3.10
-##  download - https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=3311
+##  info - https://extensions.gnome.org/extension-info/?pk=517&shell_version=3.16
+##  download - https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=4792
 /usr/bin/mkdir -p "/usr/share/gnome-shell/extensions/caffeine@patapon.info"
 /usr/bin/unzip /opt/extras/caffeine-extension.zip -d "/usr/share/gnome-shell/extensions/caffeine@patapon.info"
 /usr/bin/cp -pR /usr/share/gnome-shell/extensions/caffeine@patapon.info /etc/skel/.local/share/gnome-shell/extensions/
 ## 'Media Player Indicator'
-##  info - https://extensions.gnome.org/extension-info/?pk=55&shell_version=3.10
-##  download - https://extensions.gnome.org/download-extension/mediaplayer@patapon.info.shell-extension.zip?version_tag=3318
+##  info - https://extensions.gnome.org/extension-info/?pk=55&shell_version=3.16
+##  download - https://extensions.gnome.org/download-extension/mediaplayer@patapon.info.shell-extension.zip?version_tag=4791
 /usr/bin/mkdir -p "/usr/share/gnome-shell/extensions/mediaplayer@patapon.info"
 /usr/bin/unzip /opt/extras/media-player-indicator-extension.zip -d "/usr/share/gnome-shell/extensions/mediaplayer@patapon.info"
 /usr/bin/cp -pR /usr/share/gnome-shell/extensions/mediaplayer@patapon.info /etc/skel/.local/share/gnome-shell/extensions/
@@ -72,21 +73,26 @@
 /usr/bin/cp /opt/extras/mozilla/firefox/profiles.ini /etc/skel/.mozilla/firefox/
 /usr/bin/cp /opt/extras/mozilla/firefox/chapeau.default/prefs.js /etc/skel/.mozilla/firefox/chapeau.default
 
+# Insert up to date pharlap-modalias.map so Pharlap works for fc22
+#   Should report this to the Korora project. Pharlap should regenerate this on first run or if it doesn't exist but it doesn't,
+#   also a pharlap-modalias.map file is shipped with the package that contains package names particular to a specific fc release.
+/usr/bin/cp -f /opt/extras/pharlap-modalias.map /usr/share/pharlap
+
 # Restore default SELinux security contexts on the new/changed files
-/usr/sbin/restorecon -R /etc/skel/* /etc/dconf/db/local.d /etc/dconf/profile/user /usr/share/icons/Fedora/48x48/apps/anaconda.png /usr/share/icons/Fedora/scalable/apps/anaconda.svg /usr/share/desktop-directories/*
+/usr/sbin/restorecon -R /etc/skel/* /etc/dconf/db/local.d /etc/dconf/profile/user /usr/share/icons/Fedora/48x48/apps/anaconda.png /usr/share/icons/Fedora/scalable/apps/anaconda.svg /usr/share/desktop-directories/* /usr/share/pixmaps/chapeau-install-button.png
 
 # Update dconf databases to apply our user's Gnome defaults (set in the --nochroot)
 /usr/bin/dconf update
 
-# Force plymouth default theme as charge keeps overiding it during build
+# Force plymouth default theme
 /usr/bin/sed -i -e 's/Theme=.+/Theme=chapeau/g' /usr/share/plymouth/plymouthd.defaults
 /usr/bin/sed -i -e 's/^Theme=.+/Theme=chapeau/g' /etc/plymouth/plymouthd.conf
 /usr/sbin/plymouth-set-default-theme chapeau
 /usr/bin/dracut --force /boot/initrd-$(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1).img $(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1)
 
 # **Temporary during testing** - Install RPMFusion development repo rpms
-/usr/bin/rpm -iv /opt/extras/rpmfusion-free-release-rawhide.noarch.rpm
-/usr/bin/rpm -iv /opt/extras/rpmfusion-nonfree-release-rawhide.noarch.rpm
+#/usr/bin/rpm -iv /opt/extras/rpmfusion-free-release-rawhide.noarch.rpm
+#/usr/bin/rpm -iv /opt/extras/rpmfusion-nonfree-release-rawhide.noarch.rpm
 
 %end
 
@@ -232,6 +238,11 @@ usermod -aG wheel liveuser > /dev/null
 # Turn off the bug reporting deamon in live sessions
 systemctl stop abrtd.service 2>/dev/null
 
+# Stop package update checking & downloads in live sessions
+systemctl stop packagekit.service 2>/dev/null
+/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.software download-updates false' - liveuser
+/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.settings-daemon.plugins.updates active false' - liveuser
+
 # Turn off the packagekit daemon in live sessions
 systemctl stop packagekit.service 2>/dev/null
 
@@ -243,9 +254,6 @@ systemctl stop packagekit.service 2>/dev/null
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.desktop.screensaver lock-enabled false' - liveuser
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.session idle-delay 0' - liveuser
 /usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.desktop.lockdown disable-lock-screen true' - liveuser
-
-# Disable updates plugin
-/usr/bin/su -c '/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.settings-daemon.plugins.updates active false' - liveuser
 
 # Setup liveuser's desktop favorites
 echo "/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.shell favorite-apps \"['firefox.desktop', 'evolution.desktop', 'gnome-documents.desktop', 'gnome-music.desktop', 'shotwell.desktop', 'libreoffice-writer.desktop', 'nautilus.desktop', 'liveinst.desktop']\"" >/aa
@@ -259,8 +267,10 @@ echo "/usr/bin/dbus-launch /usr/bin/gsettings set org.gnome.shell favorite-apps 
 # make the installer show up
 /usr/bin/sed -i 's/NoDisplay=true/NoDisplay=false/' /usr/share/applications/liveinst.desktop
 
-# hide gnome-software in a live session
+# hide gnome-software & yumex in a live session
 echo "NoDisplay=true" >> /usr/share/applications/gnome-software.desktop
+echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Software.desktop
+echo "NoDisplay=true" >> /usr/share/applications/yumex-dnf.desktop
 
 # set up gdm auto-login
 /usr/bin/sed -i 's/\[daemon\]/\[daemon\]\nAutomaticLoginEnable=True\nAutomaticLogin=liveuser\n/' /etc/gdm/custom.conf
@@ -294,7 +304,7 @@ systemctl stop mdmonitor.service 2> /dev/null || :
 systemctl stop mdmonitor-takeover.service 2> /dev/null || :
 
 # don't enable the gnome-settings-daemon packagekit plugin
-gsettings set org.gnome.software download-updates 'false' || :
+gsettings set org.gnome.software download-updates false || :
 
 # don't start cron/at as they tend to spawn things which are
 # disk intensive that are painful on a live image
@@ -422,9 +432,10 @@ fi
 # Create a separate Pharlap icon named 'Driver Helper' to make it more obvious what it's for.
 /usr/bin/cp -p /usr/share/applications/pharlap.desktop /usr/share/applications/driver_helper.desktop
 /usr/bin/sed -i 's/^Name=.*/Name=Driver Helper/' /usr/share/applications/driver_helper.desktop
-/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/hicolor\/scalable\/apps\/hwhelper.svg/' /usr/share/applications/driver_helper.desktop
-/usr/bin/cp /opt/extras/hwhelper.svg /usr/share/icons/hicolor/scalable/apps/
-/usr/bin/chmod 644 /usr/share/icons/hicolor/scalable/apps/hwhelper.svg
+/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/Moka\/96x96\/apps\/cs-drivers.png/' /usr/share/applications/driver_helper.desktop
+#/usr/bin/sed -i 's/^Icon=.*/Icon=\/usr\/share\/icons\/hicolor\/scalable\/apps\/hwhelper.svg/' /usr/share/applications/driver_helper.desktop
+#/usr/bin/cp /opt/extras/hwhelper.svg /usr/share/icons/hicolor/scalable/apps/
+#/usr/bin/chmod 644 /usr/share/icons/hicolor/scalable/apps/hwhelper.svg
 
 # Tidy up liveusb-creator icon which is Fedora branded
 # The original icon will probably return at some point when updated
@@ -437,10 +448,8 @@ fi
 /usr/bin/cp -p /usr/share/applications/liveusb-creator.desktop /usr/share/applications/liveusb_creator.desktop
 echo "NoDisplay=true" >> /usr/share/applications/liveusb-creator.desktop
 
-# ... and the XTerm icon's just nasty looking.
+# ... Hide/remove some unwanted icons
 echo "NoDisplay=true" >> /usr/share/applications/xterm.desktop
-
-# ... and the OpenJDK Policy tool icon
 rm -f /usr/share/applications/*openjdk-*-policytool.desktop
 
 # The liveinst launcher needs an icon
@@ -448,7 +457,7 @@ echo "Icon=/usr/share/icons/Fedora/scalable/apps/anaconda.svg" >> /usr/share/app
 
 # Make Dropbox repo not mandatory as the Dropbox rpm installs
 # the repo file but their Fedora 22 repo is not yet available
-echo "skip_if_unavailable=1" >> /etc/yum.repos.d/dropbox.repo
+# echo "skip_if_unavailable=1" >> /etc/yum.repos.d/dropbox.repo
 
 # Some PNGs included with PlayOnLinux cause libpng to throw a warning when launching PlayOnLinux
 /usr/bin/find /usr/share/playonlinux -type f -name "*.png" -exec /usr/bin/convert '{}' -strip '{}' \;
@@ -463,6 +472,10 @@ cd /opt/extras
 /usr/bin/mkdir -p /etc/skel/.local/share/Steam/ubuntu12_32/plugins/
 /usr/bin/chmod -R 777 /etc/skel/.local/share/Steam
 ln -s /usr/lib/flash-plugin/libflashplayer.so /etc/skel/.local/share/Steam/ubuntu12_32/plugins/
+
+## Chapeau 22 ##
+# Disable Wayland on GDM for now, there seems to be a lot of reported issues with this for now
+/usr/bin/sed -i 's/^#WaylandEnable/WayandEnable/g' /etc/gdm/custom.conf
 
 # Remove temporary extras directory
 /usr/bin/rm -rf /opt/extras

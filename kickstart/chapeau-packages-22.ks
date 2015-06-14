@@ -33,6 +33,8 @@ kernel
 kernel-modules-extra
 kernel-devel
 kernel-headers
+yum
+-dnf-yum
 
 # This was added a while ago, I think it falls into the category of
 # "Diagnosis/recovery tool useful from a Live OS image".  Leaving this untouched
@@ -65,6 +67,7 @@ firefox
 gnome-tweak-tool
 #fonts-tweak-tool
 darktable
+gnome-photos
 gnome-boxes
 testdisk
 gimp
@@ -106,7 +109,7 @@ nautilus-extensions
 nautilus-open-terminal
 nautilus-sendto
 #nautilus-sound-converter
-yumex
+yumex-dnf
 unoconv
 alsa-plugins-pulseaudio
 alsa-utils
@@ -115,12 +118,14 @@ flac
 lame
 libdvdnav
 libdvdread
+lsdvd
 libmatroska
 libmpg123
 #transcode
 xvidcore
 libbluray
-pitivi
+#pitivi
+openshot
 -totem*
 chntpw
 openssh-server
@@ -129,14 +134,22 @@ stress
 beesu
 terminus-fonts-console
 gnome-system-log
-##Chapeau logo font, Comfortaa
+
+##Chapeau appearance
 aajohan-comfortaa-fonts
+chapeau-gnome-theme
+oxygen-cursor-themes
+f21-backgrounds-gnome
+f21-backgrounds-extras-gnome
+
 ##Gnome-shell extensions
 gnome-shell-extension-common
 gnome-shell-extension-weather
 #gnome-shell-extension-cpu-temperature
 gnome-shell-extension-drive-menu
-gnome-power-statistics
+gnome-power-manager
+gnome-books
+gnome-calendar
 
 #libcdio
 #libcdio-paranoia
@@ -146,28 +159,31 @@ gnome-power-statistics
 qtwebkit.i686
 libXScrnSaver.i686
 
-## Broadcom chipset tools
+## Hardware
 b43-openfwwf
 b43-tools
 b43-fwcutter
+cups-bjnp
 
 ## RPMFusion
-# **Temporary during testing** - RPMFusion development repo rpms are installed manually from the rpms in /opt/extras for now
+# **Testing** - RPMFusion development repo rpms included in the chapeau-repos package
 ###rpmfusion-free-release-rawhide
 ###rpmfusion-nonfree-release-rawhide
 ###rpmfusion-free-release
 ###rpmfusion-nonfree-release
 unrar
-#gstreamer1-libav
-#gstreamer1-plugins-bad-free-extras
-#gstreamer1-plugins-bad-freeworld
-#gstreamer1-plugins-base-tools
-#gstreamer1-plugins-good-extras
-#gstreamer1-plugins-ugly
-#gstreamer1-plugins-bad-free
+gstreamer1-libav
+gstreamer1-plugins-bad-free-extras
+gstreamer1-plugins-bad-freeworld
+gstreamer1-plugins-base-tools
+gstreamer1-plugins-good-extras
+gstreamer1-plugins-ugly
+gstreamer1-plugins-bad-free
 gstreamer1-plugins-good
 gstreamer1-plugins-base
-#vlc
+gstreamer-ffmpeg
+xvidcore
+vlc
 steam
 
 ## Korora

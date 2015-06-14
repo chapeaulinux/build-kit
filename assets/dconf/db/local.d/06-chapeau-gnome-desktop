@@ -32,4 +32,9 @@ translate=true
 
 [org/gnome/desktop/interface]
 text-scaling-factor=0.8
+cursor-theme='Oxygen_White'
+icon-theme='Moka'
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
 

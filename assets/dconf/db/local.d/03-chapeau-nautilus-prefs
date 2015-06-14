@@ -4,6 +4,6 @@ sort-directories-first=true
 enable-delete=true
 
 [org/gnome/nautilus/list-view]
-default-zoom-level='smallest'
+default-zoom-level='small'
 use-tree-view=true
 
