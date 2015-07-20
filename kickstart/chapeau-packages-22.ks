@@ -185,6 +185,7 @@ gstreamer-ffmpeg
 xvidcore
 vlc
 steam
+libtxc_dxtn.x86_64
 
 ## Korora
 pharlap*
