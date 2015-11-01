@@ -6,7 +6,7 @@
 #	building a Fedora live image.
 #
 
-packages="livecd-tools fedora-kickstarts spin-kickstarts nfs-utils yum-utils @development-tools fedora-packager createrepo kde-filesystem libicns-utils automake gnome-common gettext glib2-devel intltool"
+packages="git livecd-tools fedora-kickstarts spin-kickstarts nfs-utils dnf-utils @development-tools fedora-packager createrepo kde-filesystem libicns-utils automake gnome-common gettext glib2-devel intltool"
 br=/build-kit
 rpmbdir=~/rpmbuild
 rpmuser=$(whoami)
@@ -26,15 +26,15 @@ then
 fi
 
 echo "Installing required packages; $packages"
-sudo yum -y install $packages
+sudo dnf -y install $packages
 if [ $? = 0 ]
 then
 	echo "Packages \"$packages\" installed"
 else
 	echo "Package installation failed"
-	echo "Retry installation manually using yum, e.g."
+	echo "Retry installation manually using dnf, e.g."
 	echo
-	echo "   sudo yum install $packages"
+	echo "   sudo dnf install $packages"
 fi
 
 if [ ! -h $br ] && [ ! -d $br ]

@@ -1,13 +1,13 @@
 # Chapeau Kickstarts
 
-These files are used to build the Chapeau live image with the livecd-creator tool.  
+These files are used to build the Chapeau live image with the livecd-creator tool.
 The main kickstart file to call is chapeau-{version}.ks
 
-Starting from Chapeau 21 the main kickstart has been split into multiple kickstarts.  
-Therefore to build Chapeau 21 the following kickstarts are required;
+From Chapeau 21 the main kickstart was split into multiple kickstarts.
+Therefore to build Chapeau 23 the following kickstarts are required;
 
-chapeau-21.ks  
-chapeau-base-21.ks  
-chapeau-repos-21.ks  
-chapeau-packages-21.ks  
+chapeau-23.ks
+chapeau-base-23.ks
+chapeau-repos-23.ks
+chapeau-packages-23.ks
 
