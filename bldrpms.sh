@@ -29,7 +29,7 @@ fi
 for spec in $specs
 do
 	echo
-	echo "Building $spec..."
+	echo -e "\n\nBuilding $spec ...\n==========================\n"
 	rpmbuild -ba $spec || echo "ERROR: rpmbuild for $spec failed."
 done
 
