@@ -68,6 +68,10 @@
 # Create a dconf config directory in skel
 /usr/bin/mkdir -p /etc/skel/.config/dconf
 
+# Create aacs KEYDB for BluRay support
+/usr/bin/mkdir /etc/skel/.config/aacs
+/usr/bin/cp /opt/extras/KEYDB.cfg /etc/skel/.config/aacs/
+
 # Firefox defaults
 /usr/bin/mkdir -p /etc/skel/.mozilla/firefox/chapeau.default
 /usr/bin/cp /opt/extras/mozilla/firefox/profiles.ini /etc/skel/.mozilla/firefox/

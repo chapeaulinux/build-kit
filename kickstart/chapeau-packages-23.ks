@@ -121,6 +121,8 @@ libmatroska
 #transcode
 xvidcore
 libbluray
+libbluray-java
+libaacs
 #pitivi
 openshot
 -totem*
