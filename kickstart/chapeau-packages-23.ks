@@ -108,6 +108,7 @@ nautilus-open-terminal
 nautilus-sendto
 #nautilus-sound-converter
 yumex-dnf
+dnf-plugin-system-upgrade
 unoconv
 alsa-plugins-pulseaudio
 alsa-utils
@@ -139,7 +140,14 @@ aajohan-comfortaa-fonts
 chapeau-gnome-theme
 oxygen-cursor-themes
 f21-backgrounds-gnome
+f21-backgrounds-base
 f21-backgrounds-extras-gnome
+f22-backgrounds-gnome
+f22-backgrounds-base
+f22-backgrounds-extras-gnome
+f23-backgrounds-gnome
+f23-backgrounds-base
+f23-backgrounds-extras-gnome
 
 ##Gnome-shell extensions
 gnome-shell-extension-common
