@@ -7,12 +7,12 @@ repo --name=updates --baseurl=http://download.fedoraproject.org/pub/fedora/linux
 ## Main
 repo --name="RPMFusion Free" --baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/x86_64/os/
 repo --name="RPMFusion Free Updates" --baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/x86_64/
-repo --name="RPMFusion Free Updates - Testing" --baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/x86_64/
-#repo --name="RPMFusion Free i386" --baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/i386/os/
+#repo --name="RPMFusion Free Updates - Testing" --baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/x86_64/
+#repo --name="RPMFusion Free i386" --baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/i386/os/ 
 repo --name="RPMFusion Nonfree" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/x86_64/os/
-repo --name="RPMFusion Free Updates" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/x86_64/
-#repo --name="RPMFusion Free Updates - Testing" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/testing/$releasever/x86_64/
-repo --name="RPMFusion Nonfree i386" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/i386/os/ --includepkgs=steam,lpf-spotify-client
+repo --name="RPMFusion Nonfree Updates" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/x86_64/
+#repo --name="RPMFusion Nonfree Updates - Testing" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/testing/$releasever/x86_64/
+#repo --name="RPMFusion Nonfree i386" --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/i386/os/ --includepkgs=steam,lpf-spotify-client
 ## Devel
 #repo --name="RPMFusion Free Devel" --baseurl=http://download1.rpmfusion.org/free/fedora/development/$releasever/$basearch/os/
 #repo --name="RPMFusion Free Devel i386" --baseurl=http://download1.rpmfusion.org/free/fedora/development/$releasever/i386/os/
