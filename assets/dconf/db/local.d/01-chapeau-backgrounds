@@ -1,14 +1,13 @@
 [org/gnome/desktop/background]
 color-shading-type='solid'
-picture-uri='file:///usr/share/backgrounds/chapeau/ethereal_branded_wallpaper.jpg'
+picture-uri='file:///usr/share/backgrounds/chapeau/solitary_cloud_branded.png'
 picture-options='zoom'
-primary-color='#e3bbaa'
-secondary-color='#535340'
+primary-color='#5593c4'
 
 [org/gnome/desktop/screensaver]
 color-shading-type='vertical'
-picture-uri='file:///usr/share/backgrounds/chapeau/purple_shade_wallpaper.jpg'
+picture-uri='file:///usr/share/backgrounds/chapeau/chapeau_misty_blur_wallpaper.jpg'
 picture-options='zoom'
-primary-color='#473c4d'
-secondary-color='#957a8d'
+primary-color='#e3bbaa'
+secondary-color='#535340'
 
