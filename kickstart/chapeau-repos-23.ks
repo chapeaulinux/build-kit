@@ -1,6 +1,6 @@
 repo --name=fedora --baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/$releasever/Everything/$basearch/os/
 repo --name=updates --baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$releasever/$basearch/
-#repo --name=updates-testing --baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/testing/$releasever/$basearch/
+repo --name=updates-testing --baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/testing/$releasever/$basearch/ --includepkgs=gnome-shell
 #repo --name=rawhide --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch
 
 ### RPMFusion

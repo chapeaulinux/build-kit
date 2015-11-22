@@ -19,6 +19,10 @@
 /usr/bin/mkdir -p $INSTALL_ROOT/opt/extras
 /usr/bin/cp /build-kit/extras/* $INSTALL_ROOT/opt/extras/
 /usr/bin/cp -R /build-kit/assets/mozilla $INSTALL_ROOT/opt/extras/
+#/usr/bin/cp -R /build-kit/assets/workstation-pixmaps $INSTALL_ROOT/opt/extras/
+/usr/bin/mkdir -p $INSTALL_ROOT/usr/share/anaconda/pixmaps/workstation
+/usr/bin/cp -R /build-kit/assets/workstation-pixmaps/* $INSTALL_ROOT/usr/share/anaconda/pixmaps/workstation/
+/usr/bin/chown -R root $INSTALL_ROOT/usr/share/anaconda/pixmaps/workstation
 
 # Defaults
 /usr/bin/cp /build-kit/assets/dconf/profile/user $INSTALL_ROOT/etc/dconf/profile/
@@ -88,6 +92,12 @@
 /usr/bin/sed -i -e 's/^Theme=.+/Theme=chapeau/g' /etc/plymouth/plymouthd.conf
 /usr/sbin/plymouth-set-default-theme chapeau
 /usr/bin/dracut --force /boot/initrd-$(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1).img $(ls -1 /boot/vmlinuz*|grep -v rescue|cut -d- -f2-|tail -1)
+
+# Anaconda branding
+#/usr/bin/cp -pRf /opt/extras/workstation-pixmaps/* /usr/share/anaconda/pixmaps/workstation/
+/usr/bin/ln -s /usr/share/anaconda/pixmaps/workstation/sidebar-bg.png /usr/share/anaconda/pixmaps/sidebar-bg.png
+/usr/bin/ln -s /usr/share/anaconda/pixmaps/workstation/sidebar-logo.png /usr/share/anaconda/pixmaps/sidebar-logo.png
+/usr/bin/ln -s /usr/share/anaconda/pixmaps/workstation/topbar-bg.png /usr/share/anaconda/pixmaps/topbar-bg.png
 
 %end
 
@@ -229,6 +239,9 @@ usermod -aG wheel liveuser > /dev/null
 ##################################
 # Inserted for Chapeau live user
 ##################################
+
+# Desktop directory doesn't exist in 23's live session for some reason, make it now
+/usr/bin/mkdir -p /home/liveuser/Desktop
 
 # Turn off the bug reporting deamon in live sessions
 systemctl stop abrtd.service 2>/dev/null
@@ -387,9 +400,11 @@ systemctl enable tmp.mount
 # make it so that we don't do writing to the overlay for things which
 # are just tmpdirs/caches
 # note https://bugzilla.redhat.com/show_bug.cgi?id=1135475
+# DNF line added by VP for Chapeau...
 cat >> /etc/fstab << EOF
 vartmp   /var/tmp    tmpfs   defaults   0  0
 varcacheyum /var/cache/yum  tmpfs   mode=0755,context=system_u:object_r:rpm_var_cache_t:s0   0   0
+varcachednf /var/cache/dnf  tmpfs   mode=0755,context=system_u:object_r:rpm_var_cache_t:s0   0   0
 EOF
 
 # work around for poor key import UI in PackageKit

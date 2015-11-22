@@ -76,8 +76,8 @@ vino
 iftop
 iotop
 htop
-powertop
-fedup
+#powertop
+#fedup
 screen
 liveusb-creator
 nrg2iso
