@@ -125,6 +125,7 @@ libbluray
 libbluray-java
 libaacs
 #pitivi
+pavucontrol
 openshot
 -totem*
 chntpw
