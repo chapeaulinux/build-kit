@@ -482,7 +482,7 @@ ln -s /usr/lib/flash-plugin/libflashplayer.so /etc/skel/.local/share/Steam/ubunt
 
 ## Chapeau 22 ##
 # Disable Wayland on GDM for now, there still seems issues out there for certain GPUs.
-/usr/bin/sed -i 's/^#WaylandEnable/WayandEnable/g' /etc/gdm/custom.conf
+/usr/bin/sed -i 's/^#WaylandEnable/WaylandEnable/g' /etc/gdm/custom.conf
 
 # Remove temporary extras directory
 /usr/bin/rm -rf /opt/extras
