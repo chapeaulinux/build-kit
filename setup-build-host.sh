@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 #
 #	build_host_setup.sh
 #
