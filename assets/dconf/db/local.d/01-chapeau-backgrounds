@@ -1,13 +1,14 @@
 [org/gnome/desktop/background]
-color-shading-type='solid'
-picture-uri='file:///usr/share/backgrounds/chapeau/solitary_cloud_branded.png'
+color-shading-type='vertical'
+picture-uri='file:///usr/share/backgrounds/chapeau/chapeau_water_blades.jpg'
 picture-options='zoom'
-primary-color='#5593c4'
+primary-color='#efefe3'
+secondary-color='#dedeba'
 
 [org/gnome/desktop/screensaver]
-color-shading-type='vertical'
-picture-uri='file:///usr/share/backgrounds/chapeau/chapeau_misty_blur_wallpaper.jpg'
+color-shading-type='solid'
+picture-uri='file:///usr/share/backgrounds/chapeau/wooden_shadows.jpg'
 picture-options='zoom'
-primary-color='#e3bbaa'
-secondary-color='#535340'
+primary-color='#4b4f52'
+
 
